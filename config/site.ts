@@ -24,6 +24,10 @@ export const siteConfig = {
       label: "Contact",
       href: "/contact",
     },
+    {
+      label: "Studio",
+      href: "/studio",
+    },
   ],
   navMenuItems: [
     {
@@ -45,6 +49,10 @@ export const siteConfig = {
     {
       label: "Contact",
       href: "/contact",
+    },
+    {
+      label: "Studio",
+      href: "/studio",
     },
   ],
   links: {

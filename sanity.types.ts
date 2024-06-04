@@ -303,9 +303,9 @@ export type MoreStoriesQueryResult = Array<{
     picture: null;
   } | null;
 }>;
-// Variable: postQuery
+// Variable: fetchSingleQuery
 // Query: *[_type == "post" && slug.current == $slug] [0] {  content,    _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  excerpt,  "coverImage": mainImage.asset->url,  "date": coalesce(date, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), picture},}
-export type PostQueryResult = {
+export type FetchSingleQueryResult = {
   content: null;
   _id: string;
   status: "draft" | "published";

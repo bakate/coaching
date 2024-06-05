@@ -13,10 +13,10 @@ export default async function BlogPage() {
   });
 
   return (
-    <div className="space-y-4 w-full">
-      <h1 className={title()}>Page Blog</h1>
+    <div className="space-y-4">
+      <h1 className={title()}>Les articles les plus récents</h1>
 
-      <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+      <div className="gap-5 grid md:grid-cols-3">
         {(posts ?? []).map((post) => (
           <BlogCard key={post._id} post={post} />
         ))}

@@ -1,4 +1,4 @@
-import { urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/sanity/lib/utils";
 import Image from "next/image";
 
 interface CoverImageProps {
@@ -14,7 +14,7 @@ export default function CoverImage(props: CoverImageProps) {
       width={2000}
       height={1000}
       alt={source?.alt || ""}
-      src={urlForImage(source) as string}
+      src={urlForImage(source)?.url() as string}
       sizes="100vw"
       priority={priority}
     />

@@ -8,12 +8,12 @@ const postFields = /* groq */ `
   "title": coalesce(title, "Untitled"),
   "slug": slug.current,
   excerpt,
-  "coverImage": mainImage.asset->url,
+  coverImage,
   "date": coalesce(date, _updatedAt),
   "author": author->{"name": coalesce(name, "Anonymous"), picture},
 `;
 
-export const heroQuery = groq`*[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {
+export const heroQuery = groq`*[_type == "post"] | order(date desc, _updatedAt desc) [0] {
   content,
   ${postFields}
 }`;

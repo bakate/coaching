@@ -1,71 +1,60 @@
-import Avatar from "@/components/avatar";
-import CoverImage from "@/components/cover-image";
-import { title } from "@/components/primitives";
-import { PublishedAt } from "@/components/published-at";
-import { HeroQueryResult } from "@/sanity.types";
-import { sanityFetch } from "@/sanity/lib/fetch";
-import { heroQuery } from "@/sanity/lib/queries";
-import Link from "next/link";
+import { subtitle, title } from "@/components/primitives";
+import { cn } from "@/lib/utils";
+import { Button } from "@nextui-org/button";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
+import { Rocket } from "lucide-react";
 
 export default async function Home() {
-  const heroPost = await sanityFetch<HeroQueryResult>({ query: heroQuery });
-  if (!heroPost) {
-    throw new Error("No hero post found");
-  }
-
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="max-w-lg text-center justify-center space-y-4">
-        <h1 className={title()}>Caroline Vella</h1>
-        <HeroPost
-          title={heroPost.title}
-          slug={heroPost.slug}
-          coverImage={heroPost.coverImage}
-          excerpt={heroPost.excerpt}
-          date={heroPost.date}
-          author={heroPost.author}
-        />
-      </div>
-    </section>
-  );
-}
-
-function HeroPost({
-  title,
-  slug,
-  excerpt,
-  coverImage,
-  date,
-  author,
-}: Pick<
-  Exclude<HeroQueryResult, null>,
-  "title" | "coverImage" | "date" | "excerpt" | "author" | "slug"
->) {
-  return (
-    <article>
-      <Link className="group mb-8 block md:mb-16" href={`/blog/${slug}`}>
-        <CoverImage image={coverImage} priority />
-      </Link>
-      <div className="mb-20 md:mb-28 md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8">
-        <div>
-          <h3 className="text-pretty mb-4 text-4xl leading-tight lg:text-6xl">
-            <Link href={`/posts/${slug}`} className="hover:underline">
-              {title}
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 space-y-4 md:space-y-12">
+      <Card
+        isBlurred
+        shadow="lg"
+        className="border-none bg-background/60 dark:bg-default-100/50 max-w-full"
+      >
+        <CardHeader className="justify-between">
+          <h2 className={title()}>
+            Caroline Vella, Votre coach pour transformer vos aspirations en
+            réalisations concrètes
+          </h2>
+        </CardHeader>
+      </Card>
+      <Card shadow="lg">
+        <CardBody className="overflow-visible p-0 grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <h3 className={cn(subtitle(), "text-center p-3 md:pl-5")}>
+              Vous vous sentez débordé(e), vos projets et aspirations passent en
+              second plan et finissent par ne jamais dépasser le stade de
+              l&apos;intention ou de la to-do list. Avec le coaching, remettez
+              la priorité sur vous. Il est temps de clarifier vos objectifs,
+              surmonter vos obstacles internes et transformer vos rêves en
+              réalité. Ensemble, faisons de chaque étape une avancée vers votre
+              succès personnel et professionnel.
+            </h3>
+            <Link href={"/contact"}>
+              <Button
+                color="primary"
+                className="w-full"
+                size="lg"
+                endContent={<Rocket />}
+              >
+                Commençons
+              </Button>
             </Link>
-          </h3>
-          <div className="mb-4 text-lg md:mb-0">
-            <PublishedAt dateString={date} />
           </div>
-        </div>
-        <div>
-          {excerpt && (
-            <p className="text-pretty mb-4 text-lg leading-relaxed">
-              {excerpt}
-            </p>
-          )}
-          {author && <Avatar name={author.name} picture={author.image} />}
-        </div>
-      </div>
-    </article>
+          <Image
+            shadow="sm"
+            radius="lg"
+            width="100%"
+            height="100%"
+            alt="photo de Caroline Vella"
+            className="w-full object-cover h-[900px]"
+            src={`caroline_profile.jpeg`}
+          />
+        </CardBody>
+      </Card>
+    </section>
   );
 }

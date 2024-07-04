@@ -5,13 +5,13 @@ export default function ServicesPage() {
     <div className="space-y-4">
       <h1 className={title()}>Page des Services proposés</h1>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat aut
-        iste saepe. Expedita quo nesciunt aliquam, soluta, ad excepturi magnam
-        exercitationem quia nihil tempora quod culpa maxime quos non cupiditate.
-        Eum, obcaecati voluptas vel aliquam voluptatum, nostrum consequatur
-        laborum, rem aperiam in voluptatibus asperiores. In doloribus modi sit
-        tempora sed voluptate dolores officia, similique omnis nisi laudantium
-        possimus animi vero!
+        Mon approche de coaching allie écoute bienveillante et méthodes
+        pragmatiques. Je vous guide à travers un processus personnalisé qui
+        révèle vos forces cachées et surmonte vos obstacles intérieurs.
+        Ensemble, nous élaborons des stratégies sur mesure pour concrétiser vos
+        ambitions, qu&rsquo;elles soient professionnelles ou personnelles. Mon
+        objectif est de vous aider à gagner en clarté, confiance et motivation
+        pour atteindre vos buts avec succès.
       </p>
     </div>
   );

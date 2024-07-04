@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Linkedin } from "lucide-react";
 import { Metadata, Viewport } from "next";
+import { Toaster } from "sonner";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <Toaster position="bottom-right" closeButton />
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">

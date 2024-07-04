@@ -13,20 +13,12 @@ export const siteConfig = {
       href: "/services",
     },
     {
-      label: "Témoignages",
-      href: "/testimonials",
-    },
-    {
       label: "Blog",
       href: "/blog",
     },
     {
       label: "Contact",
       href: "/contact",
-    },
-    {
-      label: "Studio",
-      href: "/studio",
     },
   ],
   navMenuItems: [
@@ -39,20 +31,12 @@ export const siteConfig = {
       href: "/services",
     },
     {
-      label: "Témoignages",
-      href: "/testimonials",
-    },
-    {
       label: "Blog",
       href: "/blog",
     },
     {
       label: "Contact",
       href: "/contact",
-    },
-    {
-      label: "Studio",
-      href: "/studio",
     },
   ],
   links: {

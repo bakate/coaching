@@ -4,8 +4,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { siteConfig } from "@/src/config/site";
+} from "@/components/ui/card";
+import { siteConfig } from "@/config/site";
 import Image from "next/image";
 
 export default function Home() {

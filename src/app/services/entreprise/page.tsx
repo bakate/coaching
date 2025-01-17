@@ -1,6 +1,6 @@
-import { Heading } from "@/src/components/heading";
-import { ServiceItem } from "@/src/components/service-item";
-import { siteConfig } from "@/src/config/site";
+import { Heading } from "@/components/heading";
+import { ServiceItem } from "@/components/service-item";
+import { siteConfig } from "@/config/site";
 
 export default function EntreprisePage() {
   return (

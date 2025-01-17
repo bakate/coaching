@@ -10,4 +10,4 @@ export const contactFormSchema = z.object({
     .min(10, "Le message doit contenir au moins 10 caractères"),
 });
 
-export type FormData = z.infer<typeof contactFormSchema>;
+export type contactFormData = z.infer<typeof contactFormSchema>;

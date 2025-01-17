@@ -1,13 +1,8 @@
-import { ContactForm } from "@/src/components/contact-form";
-import { Heading } from "@/src/components/heading";
-import { InfoItem } from "@/src/components/info-item";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
-import { siteConfig } from "@/src/config/site";
+import { ContactForm } from "@/components/contact-form";
+import { Heading } from "@/components/heading";
+import { InfoItem } from "@/components/info-item";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { siteConfig } from "@/config/site";
 import { Clock, Mail } from "lucide-react";
 import * as z from "zod";
 

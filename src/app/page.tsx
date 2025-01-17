@@ -1,60 +1,69 @@
-import { subtitle, title } from "@/components/primitives";
-import { cn } from "@/lib/utils";
-import { Button } from "@nextui-org/button";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Image } from "@nextui-org/image";
-import { Link } from "@nextui-org/link";
-import { Rocket } from "lucide-react";
+import Image from "next/image";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 space-y-4 md:space-y-12">
-      <Card
-        isBlurred
-        shadow="lg"
-        className="border-none bg-background/60 dark:bg-default-100/50 max-w-full"
-      >
-        <CardHeader className="justify-between">
-          <h2 className={title()}>
-            Caroline Vella, Votre coach pour transformer vos aspirations en
-            réalisations concrètes
-          </h2>
-        </CardHeader>
-      </Card>
-      <Card shadow="lg">
-        <CardBody className="overflow-visible p-0 grid grid-cols-1 md:grid-cols-2 gap-16 justify-between items-center">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <h3 className={cn(subtitle(), "text-center p-3 md:pl-5")}>
-              Vous vous sentez débordé(e), vos projets et aspirations passent en
-              second plan et finissent par ne jamais dépasser le stade de
-              l&apos;intention ou de la to-do list. Avec le coaching, remettez
-              la priorité sur vous. Il est temps de clarifier vos objectifs,
-              surmonter vos obstacles internes et transformer vos rêves en
-              réalité. Ensemble, faisons de chaque étape une avancée vers votre
-              succès personnel et professionnel.
-            </h3>
-            <Link href={"/contact"}>
-              <Button
-                color="primary"
-                className="w-full"
-                size="lg"
-                endContent={<Rocket />}
-              >
-                Commençons
-              </Button>
-            </Link>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="fade-in">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              <div>
+                <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  Révélez Votre Potentiel
+                  <br />
+                  avec Caroline Vella
+                </h1>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  Coach professionnelle certifiée, je vous accompagne dans votre
+                  développement personnel et professionnel avec une approche
+                  personnalisée et bienveillante.
+                </p>
+              </div>
+              <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none">
+                <Image
+                  src="/caroline_profile.jpeg"
+                  alt="Caroline Vella - Coach Professionnelle"
+                  fill
+                  className="object-cover rounded-2xl shadow-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+              <div className="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Développement Personnel
+                </h3>
+                <p className="text-gray-600">
+                  Découvrez vos forces et développez votre confiance pour
+                  atteindre vos objectifs.
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Coaching Professionnel
+                </h3>
+                <p className="text-gray-600">
+                  Optimisez votre carrière et développez vos compétences de
+                  leadership.
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Accompagnement d'Équipe
+                </h3>
+                <p className="text-gray-600">
+                  Renforcez la cohésion et la performance de vos équipes.
+                </p>
+              </div>
+            </div>
           </div>
-          <Image
-            shadow="sm"
-            radius="lg"
-            width="100%"
-            height="100%"
-            alt="photo de Caroline Vella"
-            className="w-full object-cover h-[900px]"
-            src={`caroline_profile.jpeg`}
-          />
-        </CardBody>
-      </Card>
-    </section>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Brain, Mail, MapPin, Target, Users } from "lucide-react";
 
 export const siteConfig = {
   title: "Caroline Vella - Coach Professionnelle",
@@ -68,22 +68,39 @@ export const siteConfig = {
     title: "Révélez Votre Potentiel",
     description:
       "Coach professionnelle certifiée, je vous accompagne dans votre développement personnel et professionnel avec une approche personnalisée et bienveillante.",
+    CTA: "Commencez votre voyage",
     services: [
       {
         title: "Développement Personnel",
         description:
           "Découvrez vos forces et développez votre confiance pour atteindre vos objectifs.",
+        icon: Brain,
+        CTA: "En savoir plus",
+        link: "/services/particulier",
       },
       {
         title: "Coaching Professionnel",
         description:
           "Optimisez votre carrière et développez vos compétences de leadership.",
+        icon: Target,
+        CTA: "En savoir plus",
+        link: "/services/entreprise",
       },
       {
         title: "Accompagnement d'Équipe",
         description: "Renforcez la cohésion et la performance de vos équipes.",
+        icon: Users,
+        CTA: "En savoir plus",
+        link: "/services/entreprise",
       },
     ],
+    footerCTA: {
+      title: "Commencez votre voyage",
+      description:
+        "Prenez rendez-vous pour une séance de découverte et commencez votre voyage vers l'excellence.",
+      link: "/contact",
+      CTA: "Contactez-moi",
+    },
   },
 
   contactPage: {

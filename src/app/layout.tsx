@@ -2,12 +2,14 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Caroline Vella - Coach Professionnelle",
+
   description:
     "Coach professionnelle certifiée en France, accompagnement personnalisé pour particuliers et entreprises",
 };
@@ -25,6 +27,7 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange>
+          <Toaster position="bottom-right" closeButton richColors />
           <Navbar />
           <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
             <div className="pt-24 pb-16">

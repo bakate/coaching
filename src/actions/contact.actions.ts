@@ -15,18 +15,20 @@ export const contactAction = async (formData: contactFormData) => {
 
   const { email, name, subject, phone, message } = validation.data;
 
-  const usernameCapitalized = "";
-  // username.charAt(0).toUpperCase() + username.slice(1);
+  const usernameCapitalized = name
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
 
   const text =
     "Tu viens de recevoir une demande de contact depuis ton site web";
   const html = `
   <div>
   <h1>Nouvelle demande de contact</h1>
-  <p>Prénom: ${name}</p>
+  <p style="font-weight: bold;">${usernameCapitalized}</p>
   <p>Email: ${email}</p>
   <p>Téléphone: ${phone}</p>
-  <p>Sujet: ${subject}</p>
+  <p style="font-weight: bold;">Sujet: ${subject}</p>
   <p>Message: ${message}</p>
   </div>
   `;
@@ -41,7 +43,7 @@ export const contactAction = async (formData: contactFormData) => {
   if (response.status === "success") {
     return {
       status: "success",
-      message: `${name}, j'ai bien reçu votre demande.`,
+      message: `${usernameCapitalized}, j'ai bien reçu votre demande.`,
     } as const;
   } else {
     return {

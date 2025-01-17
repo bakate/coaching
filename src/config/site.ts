@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export const siteConfig = {
   title: "Caroline Vella - Coach Professionnelle",
@@ -93,12 +93,8 @@ export const siteConfig = {
     infoLabel: "Coordonnées",
     infoItems: [
       {
-        label: "contact@caroline-vella.com",
+        label: "cv.energeia@gmail.com",
         icon: Mail,
-      },
-      {
-        label: "+33 (0)6 XX XX XX XX",
-        icon: Phone,
       },
       {
         label: "Clamart, France",

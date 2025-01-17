@@ -45,19 +45,9 @@ export const ContactForm = () => {
         toast.error(res.message);
         return;
       }
-
       toast.success(res.message);
+      form.reset();
     });
-    setIsSubmitting(true);
-    try {
-      // Here you would typically send the data to your backend
-      console.log(data);
-      setSubmitSuccess(true);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsSubmitting(false);
-    }
   };
   return (
     <Card className="shadow-lg">
@@ -160,24 +150,10 @@ export const ContactForm = () => {
 
             <Button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isPending}
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50">
               {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
             </Button>
-
-            {submitSuccess && (
-              <p className="text-green-600 text-center mt-4">
-                Votre message a été envoyé avec succès. Je vous répondrai dans
-                les plus brefs délais.
-              </p>
-            )}
-
-            {submitSuccess && (
-              <p className="text-green-600 text-center mt-4">
-                Votre message a été envoyé avec succès. Je vous répondrai dans
-                les plus brefs délais.
-              </p>
-            )}
           </form>
         </Form>
       </CardContent>

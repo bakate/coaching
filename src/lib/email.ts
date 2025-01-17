@@ -30,7 +30,7 @@ export async function sendEmail({
   subject: string;
 } & (
   | { html: string; text: string; react?: never }
-  | { react: ReactElement; html?: never; text?: never }
+  | { react: ReactElement<any>; html?: never; text?: never }
 )) {
   const from = "Prise de contact <info@caroline-vella.com>";
 
@@ -78,7 +78,7 @@ export async function sendEmail({
   }
 }
 
-async function renderReactEmail(react: ReactElement) {
+async function renderReactEmail(react: ReactElement<any>) {
   const [html, text] = await Promise.all([
     renderAsync(react),
     renderAsync(react, { plainText: true }),

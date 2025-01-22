@@ -20,9 +20,9 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { Alert, AlertDescription } from "./ui/alert";
 
 export const ContactForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -45,7 +45,7 @@ export const ContactForm = () => {
         toast.error(res.message);
         return;
       }
-      toast.success(res.message);
+      setSubmitSuccess(true);
       form.reset();
     });
   };
@@ -151,9 +151,18 @@ export const ContactForm = () => {
             <Button
               type="submit"
               disabled={isPending}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50">
-              {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
+            >
+              {isPending ? "Envoi en cours..." : "Envoyer le message"}
             </Button>
+            {submitSuccess && (
+              <Alert className="bg-green-50 border-green-200">
+                <AlertDescription className="text-green-600">
+                  Votre message a été envoyé avec succès. Je vous répondrai dans
+                  les plus brefs délais.
+                </AlertDescription>
+              </Alert>
+            )}
           </form>
         </Form>
       </CardContent>

@@ -65,10 +65,20 @@ export const siteConfig = {
     },
   },
   homePage: {
-    title: "Révélez Votre Potentiel",
+    title: "Activez Votre Potentiel",
     description:
-      "Coach professionnelle certifiée, je vous accompagne dans votre développement personnel et professionnel avec une approche personnalisée et bienveillante.",
+      "Coach professionnelle certifiée, je vous accompagne dans votre développement personnel et professionnel avec une approche sur-mesure.",
     CTA: "Commencez votre voyage",
+    mission: {
+      title:
+        "Un accompagnement pour transformer vos aspirations en actions concrètes",
+      paragraphs: [
+        "Que vous soyez un particulier à un tournant de votre vie ou une entreprise confrontée à des enjeux stratégiques, le coaching est une clé puissante pour passer de l'intention à l'action et définir une stratégie qui vous ressemble.",
+        "C'est une démarche qui permet de clarifier vos priorités, de lever les freins et de poser des bases solides pour un changement durable, aligné avec vos valeurs et respectueux de votre environnement.",
+        "Ici, vous trouverez un espace d'écoute où chaque projet devient une opportunité de sens et d'impact.",
+        "Ensemble, nous rendons le changement tangible, aligné et durable.",
+      ],
+    },
     services: [
       {
         title: "Développement Personnel",
@@ -79,17 +89,25 @@ export const siteConfig = {
         link: "/services/particulier",
       },
       {
-        title: "Coaching Professionnel",
+        title: "Coaching Individuel",
         description:
           "Optimisez votre carrière et développez vos compétences de leadership.",
-        icon: Target,
+        icon: MapPin,
         CTA: "En savoir plus",
-        link: "/services/entreprise",
+        link: "/services/particulier",
       },
       {
         title: "Accompagnement d'Équipe",
         description: "Renforcez la cohésion et la performance de vos équipes.",
         icon: Users,
+        CTA: "En savoir plus",
+        link: "/services/entreprise",
+      },
+      {
+        title: "Accompagnement collectif",
+        description:
+          "Découvrez la puissance de l'intelligence collective pour atteindre vos objectfis individuele.",
+        icon: Target,
         CTA: "En savoir plus",
         link: "/services/entreprise",
       },

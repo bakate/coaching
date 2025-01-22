@@ -1,3 +1,5 @@
+import { CTASection } from "@/components/cta-section";
+import { HeroSection } from "@/components/hero-section";
 import {
   Card,
   CardContent,
@@ -7,83 +9,75 @@ import {
 } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const { homePage } = siteConfig;
+
   return (
-    <div className="fade-in">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-        <div>
-          <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Révélez Votre <span className="gradient-text">Potentiel</span>
-            <br />
-            avec Caroline Vella
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {siteConfig.homePage.description}
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300">
-            {siteConfig.homePage.CTA}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-        <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none">
-          <Image
-            src="/caroline_profile.jpeg"
-            alt="Caroline Vella - Coach Professionnelle"
-            fill
-            className="object-cover rounded-2xl shadow-lg"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority
-          />
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="fade-in">
+            <HeroSection
+              title={homePage.title}
+              description={homePage.description}
+              imageSrc={"/caroline_profile.jpeg"}
+              imageAlt="Caroline Vella - Coach Professionnelle"
+              ctaText={homePage.CTA}
+              ctaLink="/contact"
+            />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-        {siteConfig.homePage.services.map((service, index) => (
-          <Card key={index} className="card-hover">
-            <CardHeader>
-              <CardTitle>
-                <div>
-                  <div className="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                    <service.icon className="size-6 text-blue-600" />
-                  </div>
-                  {service.title}
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="flex  flex-col gap-4">
-                {service.description}
-                <Link
-                  href={service.link}
-                  className="text-blue-600 hover:text-blue-700 inline-flex items-center">
-                  {service.CTA}
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </CardDescription>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+            <div className="max-w-3xl mx-auto my-20">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8 gradient-text">
+                {homePage.mission.title}
+              </h2>
+              <div className="space-y-6">
+                {homePage.mission.paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-gray-600 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
 
-      <div className="mt-24 bg-blue-50 rounded-3xl p-12">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">
-            {siteConfig.homePage.footerCTA.title}
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            {siteConfig.homePage.footerCTA.description}
-          </p>
-          <Link
-            href={siteConfig.homePage.footerCTA.link}
-            className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300">
-            {siteConfig.homePage.footerCTA.CTA}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+              {siteConfig.homePage.services.map((service, index) => (
+                <Card
+                  key={index}
+                  className="card-hover grid grid-rows-[auto_1fr] h-full">
+                  <CardHeader>
+                    <CardTitle>
+                      <div>
+                        <div className="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+                          <service.icon className="size-6 text-blue-600" />
+                        </div>
+                        {service.title}
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid grid-rows-[1fr_auto]">
+                    <CardDescription className="flex flex-col gap-4">
+                      <span>{service.description}</span>
+                    </CardDescription>
+                    <Link
+                      href={service.link}
+                      className="text-blue-600 hover:text-blue-700 inline-flex items-center mt-4">
+                      {service.CTA}
+                      <ArrowRight className="ml-2 size-4" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <CTASection
+              title={homePage.footerCTA.title}
+              description={homePage.footerCTA.description}
+              ctaText={homePage.footerCTA.CTA}
+              ctaLink={homePage.footerCTA.link}
+            />
+          </div>
         </div>
       </div>
     </div>
